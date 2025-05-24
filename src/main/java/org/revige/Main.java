@@ -4,6 +4,8 @@
 
 // Imports
 
+    import org.revige.admin.adminMenu;
+
     import java.util.Scanner;
 
 // Class
@@ -19,7 +21,9 @@
 
                 if(menuOption == 1){
 
-                    System.out.println("Ingresaste como usuario administrador");
+                    //System.out.println("Ingresaste como usuario administrador");
+                    adminMenu admin = new adminMenu();
+                    admin.run();
 
                 }
 
