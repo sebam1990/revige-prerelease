@@ -3,9 +3,17 @@
     package org.revige.admin;
 
 // Class
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.revige.Main;
 
+
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class adminMenu {
@@ -13,7 +21,36 @@ public class adminMenu {
     public adminMenu() {
     }
 
-    public static void run(){
+    static void getCatalog(){
+
+       JSONParser parser = new JSONParser();
+
+       try(
+
+           FileReader file = new FileReader("src/main/resources/data.json")){
+
+           Object obj = parser.parse(file);
+
+           JSONArray productsArray = (JSONArray) obj;
+
+           for(Object producto:productsArray){
+
+               System.out.println(producto);
+
+           }
+
+       } catch (FileNotFoundException e) {
+           throw new RuntimeException(e);
+       } catch (IOException e) {
+           throw new RuntimeException(e);
+       } catch (ParseException e) {
+           throw new RuntimeException(e);
+       }
+
+
+    }
+
+    public static void run() {
 
             System.out.println("REVIGE");
             System.out.println("----------");
@@ -34,10 +71,10 @@ public class adminMenu {
             switch(option){
 
                 case 1:
-                    System.out.println("Catalogo");
+                    getCatalog();
                     break;
                 case 2:
-                    System.out.println("2");
+                    //System.out.println("2");
                     break;
                 case 3:
                     System.out.println("3");
