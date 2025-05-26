@@ -1,13 +1,17 @@
 package org.revige.products;
 
-abstract class Product {
+public abstract class Product {
 
+    private String description;
     private double hourPrice;
+    private int stock;
 
     public Product() {}
 
-    public Product(double hourPrice) {
+    public Product(String description, double hourPrice, int stock) {
+        this.description = description;
         this.hourPrice = hourPrice;
+        this.stock = stock;
     }
 
     public double fraction(double hourPrice){
@@ -26,6 +30,14 @@ abstract class Product {
 
         return hourPrice*24;
 
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public double getHourPrice() {
+        return hourPrice;
     }
 
 }

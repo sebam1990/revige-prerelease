@@ -4,8 +4,9 @@ public class Car extends Product{
 
     public Car(){}
 
-    public Car(double hourPrice) {
-        super(hourPrice);
+    public Car(String description, double hourPrice, int stock) {
+        super(description, hourPrice, stock);
+
     }
 
     @Override
@@ -23,4 +24,13 @@ public class Car extends Product{
         return super.fullStay(hourPrice);
     }
 
+    @Override
+    public String getDescription() {
+        return super.getDescription();
+    }
+
+    @Override
+    public double getHourPrice() {
+        return super.getHourPrice();
+    }
 }

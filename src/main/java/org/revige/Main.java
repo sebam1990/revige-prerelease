@@ -6,6 +6,7 @@
 
 
     import org.revige.admin.adminMenu;
+    import org.revige.client.clientMenu;
 
     import java.io.IOException;
     import java.util.Scanner;
@@ -21,31 +22,19 @@
                 Scanner optionReader = new Scanner(System.in);
                 System.out.println(">> "); int menuOption = optionReader.nextInt();
 
-                if(menuOption == 1){
-
-                    //System.out.println("Ingresaste como usuario administrador");
-                    adminMenu admin = new adminMenu();
-                    admin.run();
-
-                }
-
-                else if(menuOption == 2){
-
-                    System.out.println("Ingresaste como usuario cliente");
-
-                }
-
-                else if(menuOption == 3){
-
-                    System.exit(0);
-
-                }
-
-                else{
-
-                    System.out.println("La opción ingresada no es correcta. Volve a intentar.");
-                    getOption();
-
+                switch(menuOption){
+                    case 1:
+                        adminMenu admin = new adminMenu();
+                        admin.run();
+                        break;
+                    case 2:
+                        clientMenu client = new clientMenu();
+                        client.run();
+                    case 3:
+                        System.exit(0);
+                    default:
+                        System.out.println("El tipo de usuario seleccionado no es correcto. Intenta con otra.");
+                        getOption();
                 }
 
             }
